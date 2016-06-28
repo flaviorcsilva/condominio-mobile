@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lista_alarmes_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="br.org.iupi.condominio.view.AgendaAlarme$ListaAlarmesFragment" >
+
+    <ListView
+        android:id="@+id/lstAlarmes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:headerDividersEnabled="true"
+        android:listSelector="@color/azul_medio_claro" />
+
+</LinearLayout>

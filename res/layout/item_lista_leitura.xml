@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:ignore="UseCompoundDrawables" >
+
+    <TableRow tools:ignore="UselessParent" >
+
+        <TextView
+            android:id="@+id/txvItemListaLeituraUnidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:paddingStart="20sp"
+            android:paddingTop="10sp"
+            android:textColor="@color/azul_escuro"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txvItemListaLeituraTipoMedicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:padding="10sp"
+            android:textColor="@color/azul_escuro"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txvItemListaLeituraMedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10sp"
+            android:textColor="@color/preto"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_horizontal"
+            android:paddingBottom="10sp"
+            android:paddingEnd="20sp"
+            android:paddingStart="30sp"
+            android:paddingTop="10sp"
+            android:src="@drawable/ic_foto_laranja_32"
+            tools:ignore="ContentDescription" />
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_leitura_consumo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:context=".view.LeituraConsumoFragment" >
+
+    <TableRow
+        android:background="@color/azul_medio_claro"
+        tools:ignore="UselessParent" >
+
+        <Button
+            android:id="@+id/btnLeituraMesAnterior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_anterior_laranja_32"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:paddingStart="10sp"
+            android:paddingTop="10sp"
+            android:text="@string/txt_anterior"
+            android:textColor="@color/laranja"
+            android:textSize="14sp" />
+
+        <TextSwitcher
+            android:id="@+id/txtSwitcherMesLeitura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/btnLeituraProximoMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_proximo_laranja_medio"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:paddingStart="10sp"
+            android:paddingTop="10sp"
+            android:text="@string/txt_proximo"
+            android:textColor="@color/laranja"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/lstLeituras"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:headerDividersEnabled="true"
+            android:listSelector="@color/azul_medio_claro" />
+
+        <ImageButton
+            android:id="@+id/btnAdicionaLeitura"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/oval"
+            android:contentDescription="@string/txt_todo"
+            android:src="@drawable/ic_add_branco_26" />
+    </RelativeLayout>
+
+</TableLayout>

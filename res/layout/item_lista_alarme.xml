@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:ignore="UseCompoundDrawables" >
+
+    <TableRow tools:ignore="UselessParent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:orientation="vertical"
+            android:padding="15sp" >
+
+            <TextView
+                android:id="@+id/txvItemListaAlarmeHorario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="0sp"
+                android:textColor="@color/azul_escuro"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeSegunda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_seg"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeTerca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_ter"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeQuarta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_qua"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeQuinta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_qui"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeSexta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_sex"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeSabado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_sab"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txvItemListaAlarmeDomingo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:background="@drawable/shp_arredondado_bkg_normal"
+                    android:text="@string/txt_dom"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="15sp"
+            android:src="@drawable/ic_delete_laranja_medio"
+            tools:ignore="ContentDescription" />
+    </TableRow>
+
+</TableLayout>

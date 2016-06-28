@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adiciona_alarme_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10sp"
+    android:orientation="vertical"
+    tools:context=".view.AgendaAlarme$AdiconaAlarmeFragment" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/txt_horario"
+            android:textColor="@color/azul_escuro"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <NumberPicker
+                android:id="@+id/nmbPickerHoraAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <NumberPicker
+                android:id="@+id/nmbPickerMinutoAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="10sp"
+            android:text="@string/txt_repetir"
+            android:textColor="@color/azul_escuro"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ToggleButton
+                android:id="@+id/tgbSegundaAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="1"
+                android:textOff="@string/txt_seg"
+                android:textOn="@string/txt_seg" />
+
+            <ToggleButton
+                android:id="@+id/tgbTercaAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="2"
+                android:textOff="@string/txt_ter"
+                android:textOn="@string/txt_ter" />
+
+            <ToggleButton
+                android:id="@+id/tgbQuartaAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="3"
+                android:textOff="@string/txt_qua"
+                android:textOn="@string/txt_qua" />
+
+            <ToggleButton
+                android:id="@+id/tgbQuintaAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="4"
+                android:textOff="@string/txt_qui"
+                android:textOn="@string/txt_qui" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <ToggleButton
+                android:id="@+id/tgbSextaAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="5"
+                android:textOff="@string/txt_sex"
+                android:textOn="@string/txt_sex" />
+
+            <ToggleButton
+                android:id="@+id/tgbSabadoAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="6"
+                android:textOff="@string/txt_sab"
+                android:textOn="@string/txt_sab" />
+
+            <ToggleButton
+                android:id="@+id/tgbDomingoAdicionaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:background="@color/azul_medio_claro"
+                android:tag="0"
+                android:textOff="@string/txt_dom"
+                android:textOn="@string/txt_dom" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="?buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/azul_escuro"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnCancelarAdicionaAlarme"
+            style="?buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/azul_escuro"
+            android:text="@string/txt_cancelar"
+            android:textColor="@color/branco" />
+
+        <Button
+            android:id="@+id/btnSalvarAdicionaAlarme"
+            style="?buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/azul_escuro"
+            android:text="@string/txt_salvar"
+            android:textColor="@color/branco" />
+    </LinearLayout>
+
+</FrameLayout>

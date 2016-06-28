@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_agenda_alarme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:context=".view.AgendaAlarme"
+    tools:ignore="MergeRootFrame" >
+
+    <TableRow
+        android:background="@color/azul_medio_claro"
+        tools:ignore="UselessParent" >
+
+        <Button
+            android:id="@+id/btnAdicionarAgendaAlarme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_alarme"
+            android:onClick="onAdicionar"
+            android:paddingEnd="10sp"
+            android:paddingStart="10sp"
+            android:text="@string/txt_adicionar"
+            android:textColor="@color/laranja"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+            <ImageSwitcher
+                android:id="@+id/imgSwitcherAgendaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </ImageSwitcher>
+
+            <TextSwitcher
+                android:id="@+id/txtSwitcherAgendaAlarme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_proximo_laranja_medio"
+            android:onClick="onSwitch"
+            android:paddingEnd="10sp"
+            android:paddingStart="10sp"
+            android:text="@string/txt_proximo"
+            android:textColor="@color/laranja"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <!-- Framelayout to display Fragments -->
+
+    <FrameLayout
+        android:id="@+id/container_agenda_alarme_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</TableLayout>

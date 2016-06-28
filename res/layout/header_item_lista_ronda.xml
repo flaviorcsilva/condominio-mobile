@@ -1,0 +1,41 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_medio_claro"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:context="br.org.iupi.condominio.view.RondasFragment" >
+
+    <TableRow tools:ignore="UselessParent" >
+
+        <!--
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="15sp"
+            android:src="@drawable/ic_checklist"
+            tools:ignore="ContentDescription" />
+        -->
+
+        <TextView
+            android:id="@+id/txvHeaderData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="15sp"
+            android:textColor="@color/azul_escuro"
+            android:textSize="20sp" />
+
+        <DigitalClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="15sp"
+            android:textColor="@color/azul_escuro"
+            android:textSize="20sp" />
+    </TableRow>
+
+</TableLayout>

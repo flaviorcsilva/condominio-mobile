@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:ignore="UseCompoundDrawables" >
+
+    <TableRow tools:ignore="UselessParent" >
+
+        <ImageView
+            android:id="@+id/imgItemListaRondaEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="15sp"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txvItemListaRondaHorario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0sp"
+                android:textColor="@color/azul_escuro"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txvItemListaRondaMensagemEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0sp"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="15sp"
+            android:src="@drawable/ic_proximo"
+            tools:ignore="ContentDescription" />
+    </TableRow>
+
+</TableLayout>

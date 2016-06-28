@@ -1,0 +1,17 @@
+<resources>
+
+    <color name="branco">#ffffff</color>
+    <color name="vermelho">#ff0000</color>
+    <color name="vermelho_claro">#e74c3c</color>
+    <color name="azul">#0000ff</color>
+    <color name="verde">#00ff00</color>
+    <color name="preto">#000000</color>
+    <color name="azul_super_claro">#33b5e5</color>
+    <color name="azul__super_escuro">#66000000</color>
+    <color name="azul_claro">#f0f8ff</color>
+    <color name="azul_medio_claro">#d6e4ef</color>
+    <color name="azul_medio_escuro">#8db3d2</color>
+    <color name="azul_escuro">#4682b4</color>
+    <color name="laranja">#e67e22</color>
+
+</resources>

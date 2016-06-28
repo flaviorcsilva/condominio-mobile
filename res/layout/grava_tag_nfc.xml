@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grava_tag_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/vertical_margin"
+    android:paddingLeft="@dimen/horizontal_margin"
+    android:paddingRight="@dimen/horizontal_margin"
+    android:paddingTop="@dimen/vertical_margin"
+    tools:context="br.org.iupi.condominio.view.GravaTagNFC"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_nfc_acao_tag"
+        android:textColor="@color/azul_escuro"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spnAcaoTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/lst_txt_nfc_acoes_tag" >
+    </Spinner>
+
+    <!-- Framelayout to display Fragments -->
+
+    <FrameLayout
+        android:id="@+id/grava_tag_container_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/imgTagNFC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtTagNFC"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/txt_todo"
+            android:src="@drawable/ic_nfc" />
+
+        <TextView
+            android:id="@+id/txtTagNFC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/txt_nfc_aproxime_tag"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+</LinearLayout>

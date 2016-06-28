@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/vertical_margin"
+    android:orientation="vertical"
+    tools:context="br.org.iupi.condominio.GravaTagNFC$GravaTagRondasFragment" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_local"
+        android:textColor="@color/azul_escuro"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spnLocalRonda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/lst_txt_locais_ronda" />
+
+</LinearLayout>

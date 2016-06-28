@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Textos -->
+    <string name="txt_nome_aplicacao">Condominio Alerta</string>
+    <string name="txt_funcionalidade_indisponivel">Esta funcionalidade está disponível somente na versão completa</string>
+    <string name="txt_rondas">Rondas</string>
+    <string name="txt_leitura_consumo">Leitura de Consumo</string>
+    <string name="txt_medicao_agua">Medição de Água</string>
+    <string name="txt_verificacao_luzes">Verificação de Luzes</string>
+    <string name="txt_irrigacao_grama">Irrigação da Grama</string>
+    <string name="txt_placas_solares">Placas Solares</string>
+    <string name="txt_nfc_aproxime_tag">Aproxime uma Tag NFC</string>
+    <string name="txt_nfc_acao_tag">Ação da Tag NFC</string>
+    <string name="txt_nfc_grava_tag">Grava Tag NFC</string>
+    <string name="txt_local">Local</string>
+    <string name="txt_ronda_alerta">Ronda Alerta</string>
+    <string name="txt_realizar_ronda">Realizar Ronda</string>
+    <string name="txt_agenda_alarme">Agenda Alarme</string>
+    <string name="txt_adicionar">Adicionar</string>
+    <string name="txt_salvar">Salvar</string>
+    <string name="txt_horario">Horário</string>
+    <string name="txt_repetir">Repetir</string>
+    <string name="txt_alerta">Alerta</string>
+    <string name="txt_cancelar">Cancelar</string>
+    <string name="txt_anterior">Anterior</string>
+    <string name="txt_proximo">Próximo</string>
+    <string name="txt_seg">Seg</string>
+    <string name="txt_ter">Ter</string>
+    <string name="txt_qua">Qua</string>
+    <string name="txt_qui">Qui</string>
+    <string name="txt_sex">Sex</string>
+    <string name="txt_sab">Sab</string>
+    <string name="txt_dom">Dom</string>
+    <string name="txt_todo">TODO</string>
+
+    <!-- Menus -->
+    <string name="menu_mais_opcoes">Mais Opções</string>
+
+    <!-- Mensagens -->
+    <string name="msg_nfc_disponivel">NFC está disponível</string>
+    <string name="msg_nfc_nao_disponivel">NFC não está disponível neste dispositivo. Esta aplicação pode não funcionar corretamente</string>
+    <string name="msg_nfc_tag_gravada">Tag gravada com sucesso!</string>
+    <string name="msg_nfc_gravacao_tag_falhou">Gravação da tag falhou!</string>
+    <string name="msg_nfc_tag_invalida">A Tag NFC não é válida para esta aplicação! Tente outra!</string>
+    <string name="msg_ronda_registrada">Ronda Concluída</string>
+    <string name="msg_ronda_pendente">Há rondas não registradas</string>
+    <string name="msg_ronda_nao_realizada">Não foi realizada nenhuma ronda</string>
+
+    <!-- Ações TAG NFC -->
+    <string-array name="lst_txt_nfc_acoes_tag">
+        <item>@string/txt_leitura_consumo</item>
+        <item>@string/txt_rondas</item>
+        <item>@string/txt_verificacao_luzes</item>
+        <item>@string/txt_irrigacao_grama</item>
+        <item>@string/txt_placas_solares</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="lst_img_nfc_acoes_tag">
+        <item>@drawable/ic_agua</item>
+        <item>@drawable/ic_ronda</item>
+        <item>@drawable/ic_luz</item>
+        <item>@drawable/ic_irrigacao_azul_24</item>
+        <item>@drawable/ic_placa_solar</item>
+    </array>
+
+    <string-array name="lst_txt_locais_ronda">
+        <item>Entrada A</item>
+        <item>Entrada C</item>
+        <item>Garagem 1o. Subsolo Entrada A</item>
+        <item>Garagem 1o. Subsolo Entrada C</item>
+        <item>Garagem 2o. Subsolo Entrada B</item>
+        <item>Garagem 2o. Subsolo Entrada A</item>
+    </string-array>
+    <string-array name="lst_txt_locais_medicao_gas">
+        <item>Salão de Festas Entrada A</item>
+        <item>Salão de Festas Entrada C</item>
+        <item>Espaço Gourmet Cobertura</item>
+        <item>Churrasqueira 1 Cobertura</item>
+        <item>Churrasqueira 2 Cobertura</item>
+    </string-array>
+
+</resources>

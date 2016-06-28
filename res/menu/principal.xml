@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.Principal" >
+
+    <item
+        android:id="@+id/mnuMaisOpcoes"
+        android:orderInCategory="5"
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_mais_opcoes">
+        <menu>
+            <item
+                android:id="@+id/mnuGravaTagNFC"
+                android:icon="@drawable/ic_nfc_checkpoint"
+                android:showAsAction="ifRoom"
+                android:title="@string/txt_nfc_grava_tag"/>
+            <item
+                android:id="@+id/mnuAgendaAlarme"
+                android:icon="@drawable/ic_alarme"
+                android:showAsAction="always"
+                android:title="@string/txt_agenda_alarme"/>
+        </menu>
+    </item>
+
+</menu>

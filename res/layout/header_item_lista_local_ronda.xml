@@ -1,0 +1,23 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_medio_claro"
+    android:orientation="horizontal"
+    android:shrinkColumns="1"
+    android:stretchColumns="1"
+    tools:context="br.org.iupi.condominio.view.DetalheRonda" >
+
+    <TableRow tools:ignore="UselessParent" >
+
+        <TextView
+            android:id="@+id/txvHeaderHorarioProgramado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="15sp"
+            android:textColor="@color/azul_escuro"
+            android:textSize="20sp" />
+    </TableRow>
+
+</TableLayout>
