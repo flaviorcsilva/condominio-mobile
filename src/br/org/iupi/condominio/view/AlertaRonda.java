@@ -47,7 +47,7 @@ public class AlertaRonda extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(AlertaRonda.this, Principal.class);
+				Intent intent = new Intent(AlertaRonda.this, PrincipalActivity.class);
 				startActivity(intent);
 			}
 		});

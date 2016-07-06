@@ -28,7 +28,7 @@ import br.org.iupi.condominio.model.Alarme;
 import br.org.iupi.condominio.service.AlarmeService;
 import br.org.iupi.condominio.timer.AlertaRondaReceiver;
 
-public class AdicionaAlarmeFragment extends Fragment {
+public class AlarmeAdicionaFragment extends Fragment {
 
 	private View rootView;
 	private NumberPicker nmbPickerHora;
@@ -52,7 +52,7 @@ public class AdicionaAlarmeFragment extends Fragment {
 	private Set<Integer> diasDaSemana = null;
 	private AlarmeService alarmeService = null;
 
-	public AdicionaAlarmeFragment(AcaoTagNFC acao) {
+	public AlarmeAdicionaFragment(AcaoTagNFC acao) {
 		this.acao = acao;
 		diasDaSemana = new HashSet<Integer>();
 		alarmeService = AlarmeService.get();
@@ -60,11 +60,9 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 	@SuppressLint("DefaultLocale")
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-		rootView = inflater.inflate(R.layout.adiciona_alarme_fragment,
-				container, false);
+		rootView = inflater.inflate(R.layout.alarme_adiciona_fragment, container, false);
 
 		criaNumberPickerHora();
 		criaNumberPickerMinuto();
@@ -76,14 +74,11 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 		intent = new Intent("ALERTA_RONDA");
 		intent.putExtra("id", requestCode);
-		pendingIntent = PendingIntent.getBroadcast(context, requestCode,
-				intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		alarmManager = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
 		// Get the AlarmManager service
-		alarmManager = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
 		return rootView;
 	}
@@ -108,27 +103,23 @@ public class AdicionaAlarmeFragment extends Fragment {
 		alarmManager.cancel(pendingIntent);
 
 		long interval = calendar.getTimeInMillis() + 604800000L;
-		alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-				calendar.getTimeInMillis(), interval, pendingIntent);
+		alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
 	}
 
 	private OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener() {
 
 		@Override
-		public void onCheckedChanged(CompoundButton buttonView,
-				boolean isChecked) {
+		public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 			int diaDaSemana = getDiaDaSemanaDoToggleButton(buttonView);
 
 			if (isChecked) {
 				diasDaSemana.add(diaDaSemana);
 
-				buttonView.setBackgroundColor(getResources().getColor(
-						R.color.azul_medio_escuro));
+				buttonView.setBackgroundColor(getResources().getColor(R.color.azul_medio_escuro));
 			} else {
 				diasDaSemana.remove(diaDaSemana);
 
-				buttonView.setBackgroundColor(getResources().getColor(
-						R.color.azul_medio_claro));
+				buttonView.setBackgroundColor(getResources().getColor(R.color.azul_medio_claro));
 			}
 		}
 	};
@@ -147,24 +138,21 @@ public class AdicionaAlarmeFragment extends Fragment {
 	}
 
 	private void criaButtonCancelar() {
-		btnCancelar = (Button) rootView
-				.findViewById(R.id.btnCancelarAdicionaAlarme);
+		btnCancelar = (Button) rootView.findViewById(R.id.alarme_adiciona_btnCancelar);
 		btnCancelar.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				getActivity().getFragmentManager().popBackStack();
 
-				Button btnAdicionarAgendaAlarme = (Button) getActivity()
-						.findViewById(R.id.btnAdicionarAgendaAlarme);
+				Button btnAdicionarAgendaAlarme = (Button) getActivity().findViewById(R.id.alarme_agenda_btnAdicionar);
 				btnAdicionarAgendaAlarme.setEnabled(true);
 			}
 		});
 	}
 
 	private void criaButtonSalvar() {
-		btnSalvar = (Button) rootView
-				.findViewById(R.id.btnSalvarAdicionaAlarme);
+		btnSalvar = (Button) rootView.findViewById(R.id.alarme_adiciona_btnSalvar);
 		btnSalvar.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -181,47 +169,38 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 				getActivity().getFragmentManager().popBackStack();
 
-				Button btnAdicionarAgendaAlarme = (Button) getActivity()
-						.findViewById(R.id.btnAdicionarAgendaAlarme);
+				Button btnAdicionarAgendaAlarme = (Button) getActivity().findViewById(R.id.alarme_agenda_btnAdicionar);
 				btnAdicionarAgendaAlarme.setEnabled(true);
 			}
 		});
 	}
 
 	private void criaToggleButtonDiasDaSemana() {
-		tgbSegunda = (ToggleButton) rootView
-				.findViewById(R.id.tgbSegundaAdicionaAlarme);
+		tgbSegunda = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbSegunda);
 		tgbSegunda.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbTerca = (ToggleButton) rootView
-				.findViewById(R.id.tgbTercaAdicionaAlarme);
+		tgbTerca = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbTerca);
 		tgbTerca.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbQuarta = (ToggleButton) rootView
-				.findViewById(R.id.tgbQuartaAdicionaAlarme);
+		tgbQuarta = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbQuarta);
 		tgbQuarta.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbQuinta = (ToggleButton) rootView
-				.findViewById(R.id.tgbQuintaAdicionaAlarme);
+		tgbQuinta = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbQuinta);
 		tgbQuinta.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbSexta = (ToggleButton) rootView
-				.findViewById(R.id.tgbSextaAdicionaAlarme);
+		tgbSexta = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbSexta);
 		tgbSexta.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbSabado = (ToggleButton) rootView
-				.findViewById(R.id.tgbSabadoAdicionaAlarme);
+		tgbSabado = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbSabado);
 		tgbSabado.setOnCheckedChangeListener(onCheckedChangeListener);
 
-		tgbDomingo = (ToggleButton) rootView
-				.findViewById(R.id.tgbDomingoAdicionaAlarme);
+		tgbDomingo = (ToggleButton) rootView.findViewById(R.id.alarme_adiciona_tgbDomingo);
 		tgbDomingo.setOnCheckedChangeListener(onCheckedChangeListener);
 	}
 
 	@SuppressLint("DefaultLocale")
 	private void criaNumberPickerHora() {
-		nmbPickerHora = (NumberPicker) rootView
-				.findViewById(R.id.nmbPickerHoraAdicionaAlarme);
+		nmbPickerHora = (NumberPicker) rootView.findViewById(R.id.alarme_adiciona_nmbPickerHora);
 		nmbPickerHora.setMinValue(00);
 		nmbPickerHora.setMaxValue(23);
 		nmbPickerHora.setFormatter(new NumberPicker.Formatter() {
@@ -234,8 +213,7 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 	@SuppressLint("DefaultLocale")
 	private void criaNumberPickerMinuto() {
-		nmbPickerMinuto = (NumberPicker) rootView
-				.findViewById(R.id.nmbPickerMinutoAdicionaAlarme);
+		nmbPickerMinuto = (NumberPicker) rootView.findViewById(R.id.alarme_adiciona_nmbPickerMinuto);
 		nmbPickerMinuto.setMinValue(00);
 		nmbPickerMinuto.setMaxValue(59);
 		nmbPickerMinuto.setFormatter(new NumberPicker.Formatter() {
@@ -248,12 +226,10 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 	private void init(Context context) {
 		Intent intent = new Intent(context, AlertaRondaReceiver.class);
-		pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
-				PendingIntent.FLAG_UPDATE_CURRENT);
+		pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Get the AlarmManager service
-		alarmManager = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 	}
 
 	protected void createAlarmControler(Context context) {
@@ -274,8 +250,7 @@ public class AdicionaAlarmeFragment extends Fragment {
 
 		alarmManager.cancel(pendingIntent);
 		Log.e("", "firstTime: " + firstTime);
-		alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, firstTime, 1000 * 60
-				* 60 * 24 * 30, pendingIntent);
+		alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, firstTime, 1000 * 60 * 60 * 24 * 30, pendingIntent);
 	}
 
 	protected void cancelAlarmControler(Context context) {

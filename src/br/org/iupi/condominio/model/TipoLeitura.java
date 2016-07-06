@@ -1,6 +1,10 @@
 package br.org.iupi.condominio.model;
 
-public enum TipoLeitura {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public enum TipoLeitura implements Serializable {
 
 	AGUA_FRIA(1, "Água Fria"), AGUA_QUENTE(2, "Água Quente"), GAS(3, "Gás");
 
@@ -24,6 +28,29 @@ public enum TipoLeitura {
 		}
 
 		return tipo;
+	}
+
+	public static TipoLeitura get(String valor) {
+		TipoLeitura tipo = null;
+		for (TipoLeitura tipoLeitura : TipoLeitura.values()) {
+			if (tipoLeitura.getValor().equals(valor)) {
+				tipo = tipoLeitura;
+
+				break;
+			}
+		}
+
+		return tipo;
+	}
+
+	public static List<String> getValores() {
+		List<String> valores = new ArrayList<String>();
+
+		for (TipoLeitura tipoLeitura : TipoLeitura.values()) {
+			valores.add(tipoLeitura.getValor());
+		}
+
+		return valores;
 	}
 
 	public Integer getChave() {

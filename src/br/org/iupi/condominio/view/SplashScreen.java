@@ -19,7 +19,7 @@ public class SplashScreen extends Activity implements Runnable {
 
 	@Override
 	public void run() {
-		startActivity(new Intent(this, Principal.class));
+		startActivity(new Intent(this, PrincipalActivity.class));
 		finish();
 	}
 }

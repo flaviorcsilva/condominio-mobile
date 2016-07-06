@@ -46,8 +46,8 @@ public class ItemListaLeituraAdapter extends BaseAdapter {
 		TextView txvUnidade = (TextView) linha.findViewById(R.id.txvItemListaLeituraUnidade);
 		txvUnidade.setText(leitura.getUnidade());
 
-		TextView txvTipoMedicao = (TextView) linha.findViewById(R.id.txvItemListaLeituraTipoMedicao);
-		txvTipoMedicao.setText(leitura.getTipo().getValor());
+		TextView txvTipoLeitura = (TextView) linha.findViewById(R.id.txvItemListaLeituraTipoLeitura);
+		txvTipoLeitura.setText(leitura.getTipo().getValor());
 
 		TextView txvMedido = (TextView) linha.findViewById(R.id.txvItemListaLeituraMedido);
 		txvMedido.setText(leitura.geMedido().toString());

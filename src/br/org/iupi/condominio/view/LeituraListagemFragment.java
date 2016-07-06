@@ -1,12 +1,12 @@
 package br.org.iupi.condominio.view;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,53 +24,43 @@ import android.widget.ViewSwitcher.ViewFactory;
 import br.org.iupi.condominio.R;
 import br.org.iupi.condominio.adapter.ItemListaLeituraAdapter;
 import br.org.iupi.condominio.model.Leitura;
-import br.org.iupi.condominio.model.TipoLeitura;
+import br.org.iupi.condominio.service.LeituraService;
 
 @SuppressLint("SimpleDateFormat")
-public class LeituraConsumoFragment extends Fragment {
-
-	private Leitura leitura;
+public class LeituraListagemFragment extends Fragment {
 
 	private View rootView;
 	private LayoutInflater inflater;
 
 	private ListView lstLeituras;
-	private TextSwitcher txtSwitcherMesMedicao;
+	private TextView txvTotalLeituras;
+	private TextSwitcher txsMesMedicao;
 
-	private Calendar mesAno = Calendar.getInstance();
+	private Calendar mesAno = null;
 	private SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
 
-	private static List<Leitura> leituras = new ArrayList<Leitura>();
+	private Leitura leitura;
+	private LeituraService service;
 
-	static {
-		leituras.add(new Leitura(1L, "211", TipoLeitura.AGUA_FRIA, 1546));
-		leituras.add(new Leitura(2L, "211", TipoLeitura.AGUA_QUENTE, 356));
-		leituras.add(new Leitura(3L, "211", TipoLeitura.GAS, 91));
-		leituras.add(new Leitura(4L, "212", TipoLeitura.AGUA_FRIA, 546));
-		leituras.add(new Leitura(5L, "212", TipoLeitura.AGUA_QUENTE, 1356));
-		leituras.add(new Leitura(6L, "212", TipoLeitura.GAS, 9100));
-		leituras.add(new Leitura(7L, "213", TipoLeitura.AGUA_FRIA, 1546));
-		leituras.add(new Leitura(8L, "213", TipoLeitura.AGUA_QUENTE, 1356));
-		leituras.add(new Leitura(9L, "213", TipoLeitura.GAS, 9100));
-		leituras.add(new Leitura(10L, "214", TipoLeitura.AGUA_FRIA, 1546));
-		leituras.add(new Leitura(11L, "214", TipoLeitura.AGUA_QUENTE, 1356));
-		leituras.add(new Leitura(12L, "214", TipoLeitura.GAS, 910));
-	}
+	public LeituraListagemFragment() {
 
-	public LeituraConsumoFragment() {
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		rootView = inflater.inflate(R.layout.leitura_consumo_fragment, container, false);
+		rootView = inflater.inflate(R.layout.leitura_listagem_fragment, container, false);
+
+		mesAno = Calendar.getInstance();
+		service = new LeituraService(rootView.getContext());
 
 		this.inflater = inflater;
 		lstLeituras = criaListViewLeituras();
 
 		criaButtonMedicaoMesAnterior();
 		criaButtonMedicaoMesProximo();
-		txtSwitcherMesMedicao = criaTextSwitcherMesMedicao();
-		criaButtonAdicionaMedicao();
+		txvTotalLeituras = (TextView) rootView.findViewById(R.id.leitura_listagem_txvTotalLeituras);
+		txsMesMedicao = criaTextSwitcherMesMedicao();
+		criaButtonAdicionaLeitura();
 
 		return rootView;
 	}
@@ -83,19 +73,23 @@ public class LeituraConsumoFragment extends Fragment {
 	}
 
 	private void populaListaDeLeituras() {
-		ItemListaLeituraAdapter adapter = new ItemListaLeituraAdapter(inflater, leituras);
+		List<Leitura> leituras = service.consultaLeiturasDoMesAno(mesAno.get(Calendar.MONTH),
+				mesAno.get(Calendar.YEAR));
 
+		ItemListaLeituraAdapter adapter = new ItemListaLeituraAdapter(inflater, leituras);
 		lstLeituras.setAdapter(adapter);
+		
+		atualizaMesAnoETotalLeituras();
 	}
 
 	private Button criaButtonMedicaoMesAnterior() {
-		Button button = (Button) rootView.findViewById(R.id.btnLeituraMesAnterior);
+		Button button = (Button) rootView.findViewById(R.id.leitura_listagem_btnLeituraMesAnterior);
 
 		button.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View view) {
 				mesAno.add(Calendar.MONTH, -1);
-				txtSwitcherMesMedicao.setText(sdf.format(mesAno.getTime()));
+				populaListaDeLeituras();;
 			}
 		});
 
@@ -103,21 +97,26 @@ public class LeituraConsumoFragment extends Fragment {
 	}
 
 	private Button criaButtonMedicaoMesProximo() {
-		Button button = (Button) rootView.findViewById(R.id.btnLeituraProximoMes);
+		Button button = (Button) rootView.findViewById(R.id.leitura_listagem_btnLeituraProximoMes);
 
 		button.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View view) {
 				mesAno.add(Calendar.MONTH, 1);
-				txtSwitcherMesMedicao.setText(sdf.format(mesAno.getTime()));
+				populaListaDeLeituras();
 			}
 		});
 
 		return button;
 	}
 
+	private void atualizaMesAnoETotalLeituras() {
+		txsMesMedicao.setText(sdf.format(mesAno.getTime()));
+		txvTotalLeituras.setText(lstLeituras.getCount() + " leituras");
+	}
+
 	private TextSwitcher criaTextSwitcherMesMedicao() {
-		TextSwitcher textSwitcher = (TextSwitcher) rootView.findViewById(R.id.txtSwitcherMesLeitura);
+		TextSwitcher textSwitcher = (TextSwitcher) rootView.findViewById(R.id.leitura_listagem_txsMesLeitura);
 		textSwitcher.setFactory(new ViewFactory() {
 			@Override
 			public View makeView() {
@@ -134,13 +133,14 @@ public class LeituraConsumoFragment extends Fragment {
 		return textSwitcher;
 	}
 
-	private ImageButton criaButtonAdicionaMedicao() {
-		ImageButton imageButton = (ImageButton) rootView.findViewById(R.id.btnAdicionaLeitura);
-
+	private ImageButton criaButtonAdicionaLeitura() {
+		ImageButton imageButton = (ImageButton) rootView.findViewById(R.id.leitura_listagem_btnAdicionaLeitura);
 		imageButton.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View view) {
-
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(rootView.getContext(), LeituraFormularioActivity.class);
+				startActivity(intent);
 			}
 		});
 
@@ -148,14 +148,17 @@ public class LeituraConsumoFragment extends Fragment {
 	}
 
 	private ListView criaListViewLeituras() {
-		ListView listView = (ListView) rootView.findViewById(R.id.lstLeituras);
+		ListView listView = (ListView) rootView.findViewById(R.id.leitura_listagem_lstLeituras);
 
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 				leitura = (Leitura) adapter.getItemAtPosition(position);
 
 				if (leitura != null) {
+					Intent intent = new Intent(rootView.getContext(), LeituraFormularioActivity.class);
+					intent.putExtra(PutExtra.LEITURA.getChave(), leitura);
 
+					startActivity(intent);
 				}
 			}
 		});

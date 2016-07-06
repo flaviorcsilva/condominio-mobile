@@ -67,7 +67,7 @@ public class GravaTagNFC extends Activity {
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-				if (position == AcaoTagNFC.MEDICAO_CONSUMO.ordinal()) {
+				if (position == AcaoTagNFC.LEITURA_CONSUMO.ordinal()) {
 					replaceFragmentInView(new GravaTagLeituraConsumoFragment());
 				} else if (position == AcaoTagNFC.RONDAS.ordinal()) {
 					replaceFragmentInView(new GravaTagRondasFragment());

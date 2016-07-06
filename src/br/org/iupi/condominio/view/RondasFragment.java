@@ -66,9 +66,9 @@ public class RondasFragment extends Fragment {
 	}
 
 	private ListView criaListViewRondas() {
-		ListView lstRondas = (ListView) rootView.findViewById(R.id.lstRondas);
+		ListView listView = (ListView) rootView.findViewById(R.id.lstRondas);
 
-		lstRondas.setOnItemClickListener(new OnItemClickListener() {
+		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapter, View view,
 					int position, long id) {
 				ronda = (Ronda) adapter.getItemAtPosition(position);
@@ -76,13 +76,13 @@ public class RondasFragment extends Fragment {
 				if (ronda != null) {
 					Intent intent = new Intent(rootView.getContext(),
 							DetalheRonda.class);
-					intent.putExtra("rondaSelecionada", ronda);
+					intent.putExtra(PutExtra.RONDA.getChave(), ronda);
 
 					startActivity(intent);
 				}
 			}
 		});
 
-		return lstRondas;
+		return listView;
 	}
 }

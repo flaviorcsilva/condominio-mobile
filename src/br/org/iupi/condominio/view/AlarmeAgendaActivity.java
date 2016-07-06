@@ -22,7 +22,7 @@ import br.org.iupi.condominio.model.AcaoTagNFC;
 import br.org.iupi.condominio.model.Alarme;
 import br.org.iupi.condominio.service.AlarmeService;
 
-public class AgendaAlarme extends Activity {
+public class AlarmeAgendaActivity extends Activity {
 
 	private int position = 0;
 	private ImageSwitcher imgSwitcher;
@@ -37,7 +37,7 @@ public class AgendaAlarme extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.agenda_alarme);
+		setContentView(R.layout.alarme_agenda_activity);
 
 		alarmeService = AlarmeService.get();
 
@@ -51,12 +51,12 @@ public class AgendaAlarme extends Activity {
 
 		// icons.recycle();
 
-		btnAdicionar = (Button) findViewById(R.id.btnAdicionarAgendaAlarme);
+		btnAdicionar = (Button) findViewById(R.id.alarme_agenda_btnAdicionar);
 
 		onSwitch(null);
 
 		if (savedInstanceState == null) {
-			List<Alarme> alarmes = alarmeService.consultaPorAcao(AcaoTagNFC.MEDICAO_CONSUMO);
+			List<Alarme> alarmes = alarmeService.consultaPorAcao(AcaoTagNFC.LEITURA_CONSUMO);
 
 			replaceFragmentInView(new ListaAlarmesFragment(alarmes));
 		}
@@ -77,7 +77,7 @@ public class AgendaAlarme extends Activity {
 	}
 
 	public void onAdicionar(View view) {
-		replaceFragmentInView(new AdicionaAlarmeFragment(acao));
+		replaceFragmentInView(new AlarmeAdicionaFragment(acao));
 		btnAdicionar.setEnabled(false);
 	}
 
@@ -94,16 +94,16 @@ public class AgendaAlarme extends Activity {
 	}
 
 	private void replaceFragmentInView(Fragment fragment) {
-		getFragmentManager().beginTransaction().replace(R.id.container_agenda_alarme_fragment, fragment)
+		getFragmentManager().beginTransaction().replace(R.id.alarme_agenda_container_fragment, fragment)
 				.addToBackStack("listaDeAlarmesFragment").commit();
 	}
 
 	private void criaImageSwitcher() {
-		imgSwitcher = (ImageSwitcher) findViewById(R.id.imgSwitcherAgendaAlarme);
+		imgSwitcher = (ImageSwitcher) findViewById(R.id.alarme_agenda_imgSwitcher);
 		imgSwitcher.setFactory(new ViewFactory() {
 			@Override
 			public View makeView() {
-				ImageView imageView = new ImageView(AgendaAlarme.this);
+				ImageView imageView = new ImageView(AlarmeAgendaActivity.this);
 
 				return imageView;
 			}
@@ -114,11 +114,11 @@ public class AgendaAlarme extends Activity {
 	}
 
 	private void criaTextSwitcher() {
-		txtSwitcher = (TextSwitcher) findViewById(R.id.txtSwitcherAgendaAlarme);
+		txtSwitcher = (TextSwitcher) findViewById(R.id.alarme_agenda_txtSwitcher);
 		txtSwitcher.setFactory(new ViewFactory() {
 			@Override
 			public View makeView() {
-				TextView textView = new TextView(AgendaAlarme.this);
+				TextView textView = new TextView(AlarmeAgendaActivity.this);
 				textView.setGravity(Gravity.CENTER);
 				textView.setTextColor(getResources().getColor(R.color.azul_escuro));
 

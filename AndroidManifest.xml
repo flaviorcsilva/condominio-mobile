@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.org.iupi.condominio"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
@@ -20,8 +20,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/txt_nome_aplicacao"
         android:theme="@style/IupiTheme" >
+        
         <activity
-            android:name=".view.SplashScreen"
+            android:name="br.org.iupi.condominio.view.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
             <intent-filter>
@@ -30,8 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
-            android:name=".view.Principal"
+            android:name="br.org.iupi.condominio.view.PrincipalActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/txt_nome_aplicacao"
             android:screenOrientation="portrait" >
@@ -45,22 +47,26 @@
                 <data android:mimeType="application/vnd.br.org.iupi.condominio" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".view.Rondas"
             android:label="@string/txt_nome_aplicacao" >
         </activity>
+        
         <activity
             android:name=".view.GravaTagNFC"
             android:label="@string/txt_nfc_grava_tag"
             android:screenOrientation="portrait" >
         </activity>
+        
         <activity
             android:name=".view.DetalheRonda"
             android:label="@string/txt_rondas"
             android:screenOrientation="portrait" >
         </activity>
+        
         <activity
-            android:name=".view.AlertaRonda"
+            android:name="br.org.iupi.condominio.view.AlertaRonda"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/txt_ronda_alerta"
             android:screenOrientation="portrait" >
@@ -80,8 +86,13 @@
         </receiver>
 
         <activity
-            android:name=".view.AgendaAlarme"
+            android:name="br.org.iupi.condominio.view.AlarmeAgendaActivity"
             android:label="@string/txt_agenda_alarme"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
+            android:name="br.org.iupi.condominio.view.LeituraFormularioActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

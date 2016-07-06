@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:shrinkColumns="1"
-    android:stretchColumns="1"
-    tools:context=".view.LeituraConsumoFragment" >
+    android:stretchColumns="1" >
 
     <TableRow
         android:background="@color/azul_medio_claro"
         tools:ignore="UselessParent" >
 
         <Button
-            android:id="@+id/btnLeituraMesAnterior"
+            android:id="@+id/leitura_listagem_btnLeituraMesAnterior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
@@ -28,14 +27,29 @@
             android:textColor="@color/laranja"
             android:textSize="14sp" />
 
-        <TextSwitcher
-            android:id="@+id/txtSwitcherMesLeitura"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10sp" >
+
+            <TextSwitcher
+                android:id="@+id/leitura_listagem_txsMesLeitura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/leitura_listagem_txvTotalLeituras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/azul_escuro"
+                android:textSize="17sp" />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btnLeituraProximoMes"
+            android:id="@+id/leitura_listagem_btnLeituraProximoMes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
@@ -55,20 +69,20 @@
         android:layout_height="match_parent" >
 
         <ListView
-            android:id="@+id/lstLeituras"
+            android:id="@+id/leitura_listagem_lstLeituras"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:headerDividersEnabled="true"
             android:listSelector="@color/azul_medio_claro" />
 
         <ImageButton
-            android:id="@+id/btnAdicionaLeitura"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/leitura_listagem_btnAdicionaLeitura"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="25dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/oval"
             android:contentDescription="@string/txt_todo"
             android:src="@drawable/ic_add_branco_26" />

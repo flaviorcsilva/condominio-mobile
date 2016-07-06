@@ -2,7 +2,7 @@ package br.org.iupi.condominio.model;
 
 public enum AcaoTagNFC {
 
-	MEDICAO_CONSUMO("Medição de Consumo"), // Tag 0
+	LEITURA_CONSUMO("Leitura de Consumo"), // Tag 0
 	RONDAS("Rondas"), // Tag 1
 	VERIFICACAO_LUZES("Verificação de Luzes"), // Tag 2
 	IRRIGACAO_GRAMA("Irrigação da Grama"), // Tag 3

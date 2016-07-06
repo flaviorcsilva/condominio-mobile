@@ -3,7 +3,6 @@ package br.org.iupi.condominio.view;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,7 +30,7 @@ public class DetalheRonda extends Activity {
 		setContentView(R.layout.detalhe_ronda);
 
 		Intent intent = getIntent();
-		ronda = (Ronda) intent.getSerializableExtra("rondaSelecionada");
+		ronda = (Ronda) intent.getSerializableExtra(PutExtra.RONDA.getChave());
 
 		StringBuilder titulo = new StringBuilder("Ronda - ");
 		if (ronda != null) {
@@ -44,10 +43,8 @@ public class DetalheRonda extends Activity {
 
 		lstLocaisRonda = criaListViewLocaisRonda();
 
-		TextView txvHorario = (TextView) header
-				.findViewById(R.id.txvHeaderHorarioProgramado);
-		txvHorario.setText("Horário Programado: "
-				+ DateHelper.formatTime(ronda.getHorario()));
+		TextView txvHorario = (TextView) header.findViewById(R.id.txvHeaderHorarioProgramado);
+		txvHorario.setText("Horário Programado: " + DateHelper.formatTime(ronda.getHorario()));
 	}
 
 	@Override
@@ -61,13 +58,11 @@ public class DetalheRonda extends Activity {
 	private ListView criaListViewLocaisRonda() {
 		ListView lstLocais = (ListView) findViewById(R.id.lstLocaisRonda);
 
-		header = getLayoutInflater().inflate(
-				R.layout.header_item_lista_local_ronda, null);
+		header = getLayoutInflater().inflate(R.layout.header_item_lista_local_ronda, null);
 		lstLocais.addHeaderView(header);
 
 		lstLocais.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> adapter, View view,
-					int position, long id) {
+			public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 				localRonda = (LocalRonda) adapter.getItemAtPosition(position);
 
 				if (localRonda != null) {
@@ -80,8 +75,7 @@ public class DetalheRonda extends Activity {
 	}
 
 	private void populaListaDeLocaisRonda() {
-		ItemListaLocaisRondaAdapter adapter = new ItemListaLocaisRondaAdapter(
-				this, ronda.getLocais());
+		ItemListaLocaisRondaAdapter adapter = new ItemListaLocaisRondaAdapter(this, ronda.getLocais());
 
 		lstLocaisRonda.setAdapter(adapter);
 	}
@@ -100,8 +94,7 @@ public class DetalheRonda extends Activity {
 
 	private void configuraActionBar(String titulo) {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setBackgroundDrawable(
-				new ColorDrawable(Color.parseColor("#4682b4")));
+		getActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.azul_escuro)));
 		getActionBar().setIcon(R.drawable.ic_ronda_actionbar);
 		getActionBar().setTitle(titulo);
 	}

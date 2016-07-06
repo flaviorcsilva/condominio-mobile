@@ -8,7 +8,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -29,7 +28,7 @@ import br.org.iupi.condominio.model.AcaoTagNFC;
 import br.org.iupi.condominio.model.NavDrawerItem;
 
 @SuppressWarnings("deprecation")
-public class Principal extends Activity {
+public class PrincipalActivity extends Activity {
 
 	private NFCHelper nfcHelper;
 
@@ -53,7 +52,7 @@ public class Principal extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.principal);
+		setContentView(R.layout.principal_activity);
 
 		nfcHelper = new NFCHelper(this);
 
@@ -76,7 +75,7 @@ public class Principal extends Activity {
 		// Recycle the typed array
 		mNavMenuIcons.recycle();
 
-		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+		mDrawerList = (ListView) findViewById(R.id.principal_lst_slidermenu);
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
 		// setting the nav drawer list adapter
@@ -85,7 +84,7 @@ public class Principal extends Activity {
 
 		configuraActionBar();
 
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.principal_drawer_layout);
 		mDrawerToggle = criaActionBarDrawerToggle(mDrawerLayout);
 
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -115,7 +114,7 @@ public class Principal extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(false);
 		getActionBar().setDisplayUseLogoEnabled(false);
-		getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4682b4")));
+		getActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.azul_escuro)));
 	}
 
 	private ActionBarDrawerToggle criaActionBarDrawerToggle(DrawerLayout drawerLayout) {
@@ -267,7 +266,7 @@ public class Principal extends Activity {
 			return true;
 
 		case R.id.mnuAgendaAlarme:
-			intent = new Intent(this, AgendaAlarme.class);
+			intent = new Intent(this, AlarmeAgendaActivity.class);
 			startActivity(intent);
 			return true;
 
@@ -301,7 +300,7 @@ public class Principal extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-			fragment = new LeituraConsumoFragment();
+			fragment = new LeituraListagemFragment();
 			break;
 		case 1:
 			fragment = new RondasFragment();
@@ -321,7 +320,7 @@ public class Principal extends Activity {
 
 		if (fragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
-			fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+			fragmentManager.beginTransaction().replace(R.id.principal_frame_container, fragment).commit();
 
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
@@ -331,7 +330,7 @@ public class Principal extends Activity {
 			mDrawerLayout.closeDrawer(mDrawerList);
 		} else {
 			// error in creating fragment
-			Log.e("MainActivity", "Error in creating fragment");
+			Log.e("PrincipalActivity", "Error in creating fragment");
 		}
 	}
 

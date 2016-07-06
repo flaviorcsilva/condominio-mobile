@@ -14,10 +14,12 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    
+    <style name="EditText">
+        <item name="android:background">@android:drawable/edit_text</item>
+        <item name="android:textColor">@color/preto</item>
+    </style>
 
 </resources>

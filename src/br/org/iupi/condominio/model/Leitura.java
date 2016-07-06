@@ -19,28 +19,11 @@ public class Leitura extends Entidade<Long> implements Serializable {
 
 	private Integer medido;
 
+	private byte[] foto;
+
 	private Date data;
 
 	public Leitura() {
-		this.data = new Date();
-	}
-
-	public Leitura(String unidade, TipoLeitura tipo, Integer medido) {
-		super();
-
-		this.unidade = unidade;
-		this.tipo = tipo;
-		this.medido = medido;
-		this.data = new Date();
-	}
-
-	public Leitura(Long id, String unidade, TipoLeitura tipo, Integer medido) {
-		super();
-
-		this.id = id;
-		this.unidade = unidade;
-		this.tipo = tipo;
-		this.medido = medido;
 		this.data = new Date();
 	}
 
@@ -76,7 +59,19 @@ public class Leitura extends Entidade<Long> implements Serializable {
 		this.medido = medido;
 	}
 
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
 	public Date getData() {
 		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 }

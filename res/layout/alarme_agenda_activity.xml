@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container_agenda_alarme"
+    android:id="@+id/alarme_agenda_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:shrinkColumns="1"
     android:stretchColumns="1"
-    tools:context=".view.AgendaAlarme"
     tools:ignore="MergeRootFrame" >
 
     <TableRow
@@ -15,7 +14,7 @@
         tools:ignore="UselessParent" >
 
         <Button
-            android:id="@+id/btnAdicionarAgendaAlarme"
+            android:id="@+id/alarme_agenda_btnAdicionar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
@@ -35,13 +34,13 @@
             android:padding="10sp" >
 
             <ImageSwitcher
-                android:id="@+id/imgSwitcherAgendaAlarme"
+                android:id="@+id/alarme_agenda_imgSwitcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
             </ImageSwitcher>
 
             <TextSwitcher
-                android:id="@+id/txtSwitcherAgendaAlarme"
+                android:id="@+id/alarme_agenda_txtSwitcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -63,7 +62,7 @@
     <!-- Framelayout to display Fragments -->
 
     <FrameLayout
-        android:id="@+id/container_agenda_alarme_fragment"
+        android:id="@+id/alarme_agenda_container_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

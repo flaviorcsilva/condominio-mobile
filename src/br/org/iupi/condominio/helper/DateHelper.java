@@ -10,12 +10,9 @@ import android.annotation.SuppressLint;
 @SuppressLint("SimpleDateFormat")
 public class DateHelper {
 
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"dd/MM/yyyy");
-	private static final SimpleDateFormat timeFormat = new SimpleDateFormat(
-			"HH:mm");
-	private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat(
-			"dd/MM/yyyy HH:mm:ss");
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	private static final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+	private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	public static String formatDate(Date date) {
 		return dateFormat.format(date);
@@ -45,8 +42,7 @@ public class DateHelper {
 		Calendar calendar;
 
 		if (date == null) {
-			throw new IllegalArgumentException(
-					"Data de referência não pode ser nula.");
+			throw new IllegalArgumentException("Data de referência não pode ser nula.");
 		}
 
 		calendar = getCalendar(date);
@@ -62,13 +58,32 @@ public class DateHelper {
 		Calendar calendar;
 
 		if (date == null) {
-			throw new IllegalArgumentException(
-					"Data de referência não pode ser nula.");
+			throw new IllegalArgumentException("Data de referência não pode ser nula.");
 		}
 
 		calendar = Calendar.getInstance();
 		calendar.setTime(date);
 
 		return calendar;
+	}
+
+	public static Date getStartDateOfMonth(int month, int year) {
+		Calendar calendar = Calendar.getInstance();
+
+		calendar.set(Calendar.DAY_OF_MONTH, 1);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.YEAR, year);
+
+		return calendar.getTime();
+	}
+
+	public static Date getEndDateOfMonth(int month, int year) {
+		Calendar calendar = Calendar.getInstance();
+
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+		return calendar.getTime();
 	}
 }

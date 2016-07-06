@@ -32,6 +32,12 @@
     <string name="txt_sex">Sex</string>
     <string name="txt_sab">Sab</string>
     <string name="txt_dom">Dom</string>
+    <string name="txt_unidade">Unidade</string>
+    <string name="txt_tipo_leitura">Tipo da Leitura</string>
+    <string name="txt_medido">Medido</string>
+    <string name="txt_agua_fria">Água Fria</string>
+    <string name="txt_agua_quente">Água Quente</string>
+    <string name="txt_gas">Gás</string>
     <string name="txt_todo">TODO</string>
 
     <!-- Menus -->
@@ -54,6 +60,13 @@
         <item>@string/txt_verificacao_luzes</item>
         <item>@string/txt_irrigacao_grama</item>
         <item>@string/txt_placas_solares</item>
+    </string-array>
+
+    <!-- Tipos de Leitura -->
+    <string-array name="lst_txt_tipo_leitura">
+        <item>@string/txt_agua_fria</item>
+        <item>@string/txt_agua_quente</item>
+        <item>@string/txt_gas</item>
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->

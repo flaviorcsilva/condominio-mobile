@@ -17,13 +17,13 @@
             android:layout_gravity="center_horizontal"
             android:paddingBottom="10sp"
             android:paddingEnd="10sp"
-            android:paddingStart="20sp"
+            android:paddingStart="16sp"
             android:paddingTop="10sp"
             android:textColor="@color/azul_escuro"
-            android:textSize="25sp" />
+            android:textSize="21sp" />
 
         <TextView
-            android:id="@+id/txvItemListaLeituraTipoMedicao"
+            android:id="@+id/txvItemListaLeituraTipoLeitura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
@@ -38,16 +38,16 @@
             android:layout_gravity="center_horizontal"
             android:padding="10sp"
             android:textColor="@color/preto"
-            android:textSize="25sp" />
+            android:textSize="21sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_horizontal"
-            android:paddingBottom="10sp"
-            android:paddingEnd="20sp"
-            android:paddingStart="30sp"
-            android:paddingTop="10sp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="30dp"
+            android:paddingTop="10dp"
             android:src="@drawable/ic_foto_laranja_32"
             tools:ignore="ContentDescription" />
     </TableRow>

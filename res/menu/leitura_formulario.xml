@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/leitura_formulario_mnu_salvar"
+        android:icon="@drawable/ic_salvar_branco_26"
+        android:showAsAction="always"
+        android:title="@string/txt_salvar"/>
+
+</menu>

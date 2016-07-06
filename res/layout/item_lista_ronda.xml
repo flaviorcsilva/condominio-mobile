@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:padding="15sp"
+            android:padding="15dp"
             tools:ignore="ContentDescription" />
 
         <LinearLayout
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:padding="15sp"
+            android:padding="15dp"
             android:src="@drawable/ic_proximo"
             tools:ignore="ContentDescription" />
     </TableRow>
