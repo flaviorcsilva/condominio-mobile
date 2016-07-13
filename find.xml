@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="Project 'NfcBookCh1Example1'" />
-    <option name="defaultScopeName" value="Project 'NfcBookCh1Example1'" />
-    <option name="SEARCH_SCOPE" value="Project 'NfcBookCh1Example1'" />
+    <option name="customScope" value="File '/Users/flavio/AndroidStudioProjects/condominio-mobile/app/src/main/java/br/org/iupi/condominio/helper/NFCHelper.java'" />
+    <option name="defaultScopeName" value="File '/Users/flavio/AndroidStudioProjects/condominio-mobile/app/src/main/java/br/org/iupi/condominio/helper/NFCHelper.java'" />
+    <option name="SEARCH_SCOPE" value="File '/Users/flavio/AndroidStudioProjects/condominio-mobile/app/src/main/java/br/org/iupi/condominio/helper/NFCHelper.java'" />
   </component>
 </application>
